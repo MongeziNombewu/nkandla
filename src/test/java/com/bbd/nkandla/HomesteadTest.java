@@ -24,8 +24,8 @@ public class HomesteadTest {
 		nkandla.setAmphitheatre(amphi);
 		
 		//visiting politicians
-		politician1 = new Politician("Hellen Zille", 50, Gender.FEMALE);
-		politician2 = new Politician("Julius Malema", 38, Gender.MALE);
+		politician1 = new Politician("Hellen Zille", 50, Person.Gender.FEMALE);
+		politician2 = new Politician("Julius Malema", 38, Person.Gender.MALE);
 	}
 		
 		
