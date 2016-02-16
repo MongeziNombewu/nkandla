@@ -9,10 +9,11 @@ public class HomesteadTest {
 	
 	Homestead homestead;
 	Nkandla nkandla;
+	Politician politician1;
+	Politician politician2;
 	
 	@Before
-	public void setup() {
-		//assertEquals("Julius",Homestead.getName());
+	public void setup() {	
 		homestead = new Homestead("Zuma", "Wierda", "Gauteng", "ZA");
 		nkandla = new Nkandla ("Zuma", "Wierda", "Gauteng", "ZA");
 		SwimmingPool swimmingPool = new SwimmingPool (20, 40);
@@ -21,41 +22,50 @@ public class HomesteadTest {
 		nkandla.setChickenRun(chickenRun);
 		Amphitheatre amphi = new Amphitheatre (80);
 		nkandla.setAmphitheatre(amphi);
-		}
 		
-	
-	
+		//visiting politicians
+		politician1 = new Politician("Hellen Zille", 50, Gender.FEMALE);
+		politician2 = new Politician("Julius Malema", 38, Gender.MALE);
+	}
+		
+		
 	@Test
 	public void testName(){
 		assertEquals("Zuma", homestead.getName());
 	}
+	
 	@Test
 	public void testDistrict(){
 		assertEquals("Wierda", homestead.getDistrict());
 	}
+	
 	@Test
 	public void testProvince(){
 		assertEquals("Gauteng", homestead.getProvince());
 	}
+	
 	@Test
 	public void testCountry(){
 		assertEquals("ZA", homestead.getCountry());
 	}
-	/*@Test
+	
+	@Test (expected = RuntimeException.class)
 	public void testAccept(){
-		assert  ("Pay back the money", homestead.accept());
-		asser
-	}
-	*/
+		homestead.accept(politician1);
+		homestead.accept(politician2);
+	}	
+	
 	@Test
 	public void testSwimmingPool(){
 		assertEquals(40, nkandla.getSwimmingPool().getLength());
 		assertEquals(20, nkandla.getSwimmingPool().getWidth());
 	}
+	
 	@Test
 	public void testChickenRun(){
 		assertEquals(30, nkandla.getChickenRun().getNumberOfChickens());
 	}
+	
 	@Test
 	public void testAmphitheatre(){
 		assertEquals(80, nkandla.getAmphitheatre().getArea());
