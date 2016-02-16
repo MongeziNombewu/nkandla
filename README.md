@@ -1,0 +1,2 @@
+# nkandla
+Nkandla Homestead
