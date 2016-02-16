@@ -7,10 +7,11 @@ public class Homestead {
 	protected String mProvince;
 	protected String mCountry;
 	
-	public Homestead(String name, String district, String Province, String country) {
+	public Homestead(String name, String district, String province, String country) {
 		this.mCountry = country;
 		this.mDistrict = district;
 		this.mName = name;
+		this.mProvince = province;
 	}
 	
 	public String getName() {
@@ -27,5 +28,11 @@ public class Homestead {
 	
 	public String getCountry() {
 		return this.mCountry;
+	}
+	
+	public void accept(Visitable visitor){
+		if (visitor != null) {
+			visitor.visit(this);			
+		}
 	}
 }
