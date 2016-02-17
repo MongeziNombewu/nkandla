@@ -14,6 +14,7 @@ public class Homestead {
 		this.mProvince = province;
 	}
 	
+	
 	public String getName() {
 		return this.mName;
 	}
@@ -35,4 +36,6 @@ public class Homestead {
 			visitor.visit(this);			
 		}
 	}
+
+	
 }

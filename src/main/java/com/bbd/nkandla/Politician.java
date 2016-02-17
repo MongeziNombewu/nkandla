@@ -3,6 +3,8 @@ package com.bbd.nkandla;
 import com.bbd.nkandla.Person.Gender;
 
 public class Politician extends Person implements Visitable {
+		
+	private PoliticianType type;
 	
 	public Politician(String name, int age, Gender gender){
 		super(name, age, gender);
@@ -14,5 +16,11 @@ public class Politician extends Person implements Visitable {
 		
 	}
 	
-
+	public PoliticianType getType() {
+		return type;
+	}
+	public void setType(PoliticianType type){
+		this.type = type;
+	}
+	
 }

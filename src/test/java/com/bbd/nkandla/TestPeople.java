@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.bbd.nkandla.Person.Gender;
+
 public class TestPeople {
 
 	President president;
@@ -52,4 +54,15 @@ public class TestPeople {
 		//assertNotNull(president.getLawyer());	
 		//assertNotNull(president.getArchitect());	
 	}
+	
+	@Test
+	public void testmakePolitician() {
+		Politician politician1 = PoliticianFactory.makePolitician(PoliticianType.DA, "Hellen Zille", 45, Gender.FEMALE);
+		assertEquals(PoliticianType.DA, politician1.getType());
+		Politician politician2 = PoliticianFactory.makePolitician(PoliticianType.EFF, "Julius Malema", 45, Gender.MALE);
+		assertEquals(PoliticianType.EFF, politician2.getType());
+		
+	}
+	
+	
 }

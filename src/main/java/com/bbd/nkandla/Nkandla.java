@@ -5,6 +5,7 @@ public class Nkandla extends Homestead {
 	private ChickenRun mChickenRun;
 	private SwimmingPool mSwimmingPool;
 	private Amphitheatre mAmphitheatre;
+	private static Nkandla instance;
 	
 	public Nkandla(String name, String district, String Province, String country) {
 		super(name, district, Province, country);
@@ -12,10 +13,41 @@ public class Nkandla extends Homestead {
 		this.mCountry = country;
 		this.mDistrict = district;
 		this.mName = name;
+		this.mProvince = Province;
+	}
+	
+	public String getName (){
+		return mName;
+	}
+	
+	public String getDistrict(){
+		return mDistrict;
+	}
+	
+	public String getProvince(){
+		return mProvince;
+	}
+	
+	public String getCountry(){
+		return mCountry;
 	}
 	
 	public void setSwimmingPool(SwimmingPool swimmingPool) {
 		this.mSwimmingPool = swimmingPool;
+	}
+	
+	public static Nkandla getInstance (String name, String district, String Province, String country)
+	{
+		if (instance == null)
+		{
+			instance = new Nkandla(name, district, Province, country);
+		}
+		return instance;
+	}
+
+	@Override
+	public String toString() { 
+		return "Name: " + this.mName + " Country " + this.mCountry;
 	}
 	
 	public SwimmingPool getSwimmingPool() {
@@ -37,4 +69,9 @@ public class Nkandla extends Homestead {
 	public void setAmphitheatre(Amphitheatre amphi) {
 		this.mAmphitheatre = amphi;
 	}
+	public static void main (String[] args){
+		System.out.println(Nkandla.getInstance("Zuma", "", "Gauteng", "ZA"));
+		System.out.println(Nkandla.getInstance("", "", "", ""));
+	}
+	
 }
